@@ -1,41 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Goofy AI Realm 2nd — GAR2.ai</title>
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Goofy AI Realm 2nd — GAR2.ai (Liquid Glass)</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div id="app">
-    <header>
-      <h1>Goofy AI Realm 2nd</h1>
-      <p class="subtitle">GAR2.ai — Experimental AI Chat (Groq)</p>
-    </header>
+  <div class="page-bg">
+    <div class="container">
+      <header class="site-header">
+        <div class="logo">
+          <div class="logo-bubble">GAR2<span class="dot">.ai</span></div>
+          <span class="beta">beta</span>
+        </div>
+        <h1 class="title">Goofy AI Realm 2nd</h1>
+        <p class="subtitle">GAR2.ai — Experimental AI Chat (Liquid Glass theme)</p>
+      </header>
 
-    <main>
-      <div id="chat-box" aria-live="polite"></div>
+      <main class="card glass">
+        <div id="chat-box" aria-live="polite" class="chat-box"></div>
 
-      <div id="input-area">
-        <input id="user-input" type="text" placeholder="Say something…" aria-label="Message" />
-        <button id="send-btn">Send</button>
-      </div>
-    </main>
+        <div id="input-area" class="input-area">
+          <input id="user-input" class="input" type="text" placeholder="Type your message..." aria-label="Message" />
+          <button id="send-btn" class="btn glossy">Send</button>
+        </div>
+      </main>
 
-    <footer>
-      <small>Enter your Groq API key when prompted. Keys are stored only in your browser session.</small>
-    </footer>
+      <footer class="site-footer">
+        <small>Enter your Groq API key when prompted. Keys are stored only in your browser session.</small>
+      </footer>
+    </div>
   </div>
 
   <!-- API key popup -->
   <div id="key-popup" class="popup" role="dialog" aria-modal="true" aria-labelledby="key-popup-title">
-    <div class="popup-content">
+    <div class="popup-content glass">
       <h2 id="key-popup-title">Enter Your Groq API Key</h2>
       <p class="muted">This key stays in your browser and is not uploaded anywhere.</p>
       <input id="key-input" type="password" placeholder="Groq API Key" aria-label="Groq API Key" />
       <div class="popup-actions">
-        <button id="save-key-btn">Continue</button>
-        <button id="use-demo-btn">Use Demo (no live API)</button>
+        <button id="save-key-btn" class="btn glossy">Continue</button>
+        <button id="use-demo-btn" class="btn subtle">Use Demo (no live API)</button>
       </div>
       <p class="muted small">Demo mode uses canned responses and does not call Groq.</p>
     </div>
