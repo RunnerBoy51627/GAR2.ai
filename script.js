@@ -1,5 +1,6 @@
 /*
 GAR2.ai — Frontend-only chat for GitHub Pages using user-supplied Groq key.
+Liquid Glass UI theme.
 Demo mode uses canned responses and does NOT call Groq.
 */
 
@@ -81,7 +82,6 @@ async function callGroqChat(message) {
   }
 
   const data = await resp.json();
-  // Defensive check for modern-style OpenAI-compatible response
   if (data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content) {
     return data.choices[0].message.content;
   } else if (data.choices && data.choices[0] && data.choices[0].text) {
@@ -91,7 +91,6 @@ async function callGroqChat(message) {
 }
 
 function cannedReply(userText) {
-  // Very simple demo replies to avoid any harmful content, and to keep it playful.
   const lower = userText.toLowerCase();
   if (lower.includes('joke')) return "Why did the cookie go to the doctor? Because it felt crummy! 😄";
   if (lower.includes('name')) return "I'm Goofy AI — nice to meet you!";
@@ -101,7 +100,6 @@ function cannedReply(userText) {
 
 async function sendToAI(message) {
   if (DEMO_MODE) {
-    // quick fake delay
     await new Promise(r => setTimeout(r, 600));
     return cannedReply(message);
   }
@@ -126,7 +124,6 @@ sendBtn.onclick = async () => {
   addMessage('user', text);
   input.value = '';
 
-  // show a typing indicator
   const typingEl = document.createElement('div');
   typingEl.className = 'message bot';
   typingEl.innerHTML = '<div class="meta">Goofy AI</div><div class="bubble">Goofy AI is typing…</div>';
@@ -135,20 +132,17 @@ sendBtn.onclick = async () => {
 
   const reply = await sendToAI(text);
 
-  // remove typing element
   typingEl.remove();
 
   addMessage('bot', reply);
 };
 
-// Allow pressing Enter to send
 input.addEventListener('keydown', (e) => {
   if (e.key === 'Enter') {
     sendBtn.click();
   }
 });
 
-// On first load, show the key popup
 window.addEventListener('load', () => {
   popup.style.display = 'flex';
 });
